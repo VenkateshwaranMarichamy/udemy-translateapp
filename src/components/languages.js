@@ -5,7 +5,7 @@ function Languages({language, onLanguageChange}){
         <div>
             <label className='label'>Select a language</label>
             <div className='opts'>
-               {Languages.map(({label,value}) => {
+               {LANGUAGES.map(({label,value}) => {
                 return(
                     <div
                     key={label} className={`opt ${value === language ? "selected" : ""}`}

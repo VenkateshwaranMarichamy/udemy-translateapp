@@ -10,7 +10,7 @@ const [translated] = useTranslation(text,language);
             <h1 className='title' >{translated.replace("&#39;", "'")}</h1>
         </div>
     );
-
+    }
     const useTranslation = (language, text) =>{
         const [translated, setTranslated] = useState("");
 
@@ -24,11 +24,11 @@ const [translated] = useTranslation(text,language);
 
         return () => {
             try{
-                cancelToken.cancel;
+                cancelToken.cancel();
             }catch(err){}
         };
     }, [text,language]);
-    retur [translated];
+    return [translated];
 
     };
 
@@ -48,7 +48,7 @@ const [translated] = useTranslation(text,language);
     };
 
     const doTranslation = debounce(
-        async (input, languageCode, cancelToken, setTranslated) => {
+        async (input, languageCode, cancelToken, callback) => {
             try{
                 const {data} = await Axios.post(
                     "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA",
@@ -64,6 +64,6 @@ const [translated] = useTranslation(text,language);
             }
         }
     )
-}
 
-export default translate;
+
+export default Translate;
